@@ -1,0 +1,19 @@
+# Java compiled files
+*.class
+
+# Build output
+/build/
+/bin/
+/target/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
