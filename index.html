@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodOrder - Order Food Online</title>
+</head>
+
+<body style="
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#FFF4EA;
+    color:#252525;
+">
+
+<!-- ================= HEADER ================= -->
+<header style="
+    width:100%;
+    background:white;
+    box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+">
+    <div style="
+        max-width:1200px;
+        margin:auto;
+        padding:16px 25px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        box-sizing:border-box;
+    ">
+
+        <a href="index.html" style="
+            text-decoration:none;
+            color:#FF6B35;
+            font-size:28px;
+            font-weight:800;
+        ">FoodOrder</a>
+
+        <div style="
+            display:flex;
+            align-items:center;
+            gap:24px;
+            flex-wrap:wrap;
+            justify-content:center;
+        ">
+            <a href="index.html" style="text-decoration:none;color:#252525;font-size:15px;font-weight:600;">Home</a>
+            <a href="restaurants" style="text-decoration:none;color:#252525;font-size:15px;font-weight:600;">Restaurants</a>
+            <a href="menu" style="text-decoration:none;color:#252525;font-size:15px;font-weight:600;">Menu</a>
+            <a href="order" style="text-decoration:none;color:#252525;font-size:15px;font-weight:600;">Orders</a>
+            <a href="profile" style="text-decoration:none;color:#252525;font-size:15px;font-weight:600;">Profile</a>
+            <a href="cart" style="text-decoration:none;color:#252525;font-size:15px;font-weight:600;">Cart</a>
+            <a href="login.html" style="
+                text-decoration:none;
+                color:#252525;
+                border:1px solid #ddd;
+                padding:9px 16px;
+                border-radius:8px;
+                font-size:14px;
+                font-weight:600;
+            ">Login</a>
+            <a href="signup.html" style="
+                text-decoration:none;
+                background:#FF6B35;
+                color:white;
+                padding:10px 17px;
+                border-radius:8px;
+                font-size:14px;
+                font-weight:700;
+            ">Sign Up</a>
+        </div>
+    </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section style="
+    min-height:430px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+    box-sizing:border-box;
+">
+    <video autoplay muted loop playsinline style="
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        z-index:0;
+    ">
+        <source src="images/food-hero.mp4" type="video/mp4">
+    </video>
+
+    <div style="
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background:linear-gradient(120deg,rgba(80,25,5,0.72),rgba(255,107,53,0.38));
+        z-index:1;
+    "></div>
+    <div style="width:100%;max-width:850px;color:white;position:relative;z-index:2;">
+        <div style="
+            display:inline-block;
+            background:rgba(252,128,25,0.95);
+            padding:8px 16px;
+            border-radius:25px;
+            font-size:14px;
+            font-weight:bold;
+            margin-bottom:18px;
+        ">FOOD DELIVERED TO YOUR DOOR</div>
+
+        <h1 style="
+            font-size:48px;
+            margin:0 0 15px 0;
+            line-height:1.15;
+            font-weight:800;
+        ">
+            Order Food From Your
+            <br>
+            Favourite Restaurants
+        </h1>
+
+        <p style="
+            font-size:18px;
+            margin:0 0 28px 0;
+            color:#fff;
+        ">
+            Delicious food delivered straight to your doorstep
+        </p>
+
+        <div style="
+            max-width:650px;
+            margin:auto;
+            background:white;
+            border-radius:10px;
+            padding:6px;
+            display:flex;
+            align-items:center;
+            box-shadow:0 8px 30px rgba(0,0,0,0.25);
+            box-sizing:border-box;
+        ">
+            <input type="text"
+                   placeholder="Search for dishes or restaurants"
+                   style="
+                       flex:1;
+                       border:none;
+                       outline:none;
+                       padding:15px;
+                       font-size:15px;
+                       color:#555;
+                       background:white;
+                       min-width:0;
+                   ">
+
+            <a href="menu" style="
+                display:inline-block;
+                background:#FF6B35;
+                color:white;
+                padding:14px 25px;
+                border-radius:7px;
+                font-size:15px;
+                font-weight:bold;
+                text-decoration:none;
+            ">Search</a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section style="
+    max-width:1200px;
+    margin:50px auto;
+    padding:0 25px;
+    box-sizing:border-box;
+">
+    <div style="
+        display:flex;
+        align-items:end;
+        justify-content:space-between;
+        margin-bottom:24px;
+    ">
+        <div>
+            <p style="
+                margin:0 0 6px 0;
+                color:#FF6B35;
+                font-size:13px;
+                font-weight:bold;
+                letter-spacing:1px;
+            ">EXPLORE</p>
+            <h2 style="
+                font-size:30px;
+                margin:0;
+                color:#252525;
+            ">What's on your mind?</h2>
+        </div>
+    </div>
+
+    <div style="
+        display:grid;
+        grid-template-columns:repeat(6,1fr);
+        gap:18px;
+    ">
+
+        <a href="menu" style="text-decoration:none;color:#252525;">
+            <div style="
+                background:white;
+                border-radius:16px;
+                padding:12px;
+                text-align:center;
+                box-shadow:0 3px 15px rgba(0,0,0,0.07);
+                border:1px solid #F5D8C8;
+            ">
+                <img src="images/pizza.jpg" alt="Pizza" style="width:100%;height:125px;object-fit:cover;border-radius:12px;">
+                <h3 style="font-size:16px;margin:12px 0 4px 0;">Pizza</h3>
+                <p style="font-size:12px;color:#888;margin:0;">Cheesy & tasty</p>
+            </div>
+        </a>
+
+        <a href="menu" style="text-decoration:none;color:#252525;">
+            <div style="
+                background:white;
+                border-radius:16px;
+                padding:12px;
+                text-align:center;
+                box-shadow:0 3px 15px rgba(0,0,0,0.07);
+                border:1px solid #F5D8C8;
+            ">
+                <img src="images/burger.jpg" alt="Burger" style="width:100%;height:125px;object-fit:cover;border-radius:12px;">
+                <h3 style="font-size:16px;margin:12px 0 4px 0;">Burger</h3>
+                <p style="font-size:12px;color:#888;margin:0;">Juicy & fresh</p>
+            </div>
+        </a>
+
+        <a href="menu" style="text-decoration:none;color:#252525;">
+            <div style="
+                background:white;
+                border-radius:16px;
+                padding:12px;
+                text-align:center;
+                box-shadow:0 3px 15px rgba(0,0,0,0.07);
+                border:1px solid #F5D8C8;
+            ">
+                <img src="images/biryani.jpg" alt="Biryani" style="width:100%;height:125px;object-fit:cover;border-radius:12px;">
+                <h3 style="font-size:16px;margin:12px 0 4px 0;">Biryani</h3>
+                <p style="font-size:12px;color:#888;margin:0;">Rich & flavorful</p>
+            </div>
+        </a>
+
+        <a href="menu" style="text-decoration:none;color:#252525;">
+            <div style="
+                background:white;
+                border-radius:16px;
+                padding:12px;
+                text-align:center;
+                box-shadow:0 3px 15px rgba(0,0,0,0.07);
+                border:1px solid #F5D8C8;
+            ">
+                <img src="images/dosa.jpg" alt="Dosa" style="width:100%;height:125px;object-fit:cover;border-radius:12px;">
+                <h3 style="font-size:16px;margin:12px 0 4px 0;">Dosa</h3>
+                <p style="font-size:12px;color:#888;margin:0;">Crispy & hot</p>
+            </div>
+        </a>
+
+        <a href="menu" style="text-decoration:none;color:#252525;">
+            <div style="
+                background:white;
+                border-radius:16px;
+                padding:12px;
+                text-align:center;
+                box-shadow:0 3px 15px rgba(0,0,0,0.07);
+                border:1px solid #F5D8C8;
+            ">
+                <img src="images/pasta.jpg" alt="Pasta" style="width:100%;height:125px;object-fit:cover;border-radius:12px;">
+                <h3 style="font-size:16px;margin:12px 0 4px 0;">Pasta</h3>
+                <p style="font-size:12px;color:#888;margin:0;">Creamy & delicious</p>
+            </div>
+        </a>
+
+        <a href="menu" style="text-decoration:none;color:#252525;">
+            <div style="
+                background:white;
+                border-radius:16px;
+                padding:12px;
+                text-align:center;
+                box-shadow:0 3px 15px rgba(0,0,0,0.07);
+                border:1px solid #F5D8C8;
+            ">
+                <img src="images/morefood.png" alt="More Food" style="width:100%;height:125px;object-fit:cover;border-radius:12px;">
+                <h3 style="font-size:16px;margin:12px 0 4px 0;">More</h3>
+                <p style="font-size:12px;color:#888;margin:0;">More to explore</p>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- ================= RESTAURANTS ================= -->
+<section style="
+    background:#fff;
+    padding:50px 25px;
+    margin-top:20px;
+    border-top:1px solid #f2e7df;
+    border-bottom:1px solid #f2e7df;
+">
+    <div style="max-width:1200px;margin:auto;">
+        <p style="
+            margin:0 0 6px 0;
+            color:#FF6B35;
+            font-size:13px;
+            font-weight:bold;
+            letter-spacing:1px;
+        ">TOP PICKS</p>
+
+        <h2 style="
+            font-size:30px;
+            margin:0 0 25px 0;
+            color:#252525;
+        ">Popular Restaurants</h2>
+
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:25px;
+        ">
+
+            <a href="menu" style="text-decoration:none;color:#252525;">
+                <div style="
+                    background:white;
+                    border-radius:16px;
+                    overflow:hidden;
+                    box-shadow:0 4px 18px rgba(0,0,0,0.09);
+                    border:1px solid #eee;
+                ">
+                    <img src="images/pizza.jpg" alt="Pizza House" style="width:100%;height:210px;object-fit:cover;">
+                    <div style="padding:18px;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <h3 style="margin:0;font-size:20px;">Pizza House</h3>
+                            <span style="
+                                background:#2E7D32;
+                                color:white;
+                                padding:5px 8px;
+                                border-radius:5px;
+                                font-size:13px;
+                                font-weight:bold;
+                            ">★ 4.5</span>
+                        </div>
+                        <p style="margin:10px 0 5px 0;color:#666;font-size:14px;">Pizza • Italian • Fast Food</p>
+                        <p style="margin:5px 0;color:#777;font-size:14px;">30-35 mins</p>
+                        <span style="
+                            display:inline-block;
+                            margin-top:10px;
+                            background:#FFF0E6;
+                            color:#FF6B35;
+                            padding:9px 15px;
+                            border-radius:7px;
+                            font-size:13px;
+                            font-weight:bold;
+                        ">View Menu →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="menu" style="text-decoration:none;color:#252525;">
+                <div style="
+                    background:white;
+                    border-radius:16px;
+                    overflow:hidden;
+                    box-shadow:0 4px 18px rgba(0,0,0,0.09);
+                    border:1px solid #eee;
+                ">
+                    <img src="images/biryani.jpg" alt="Biryani Corner" style="width:100%;height:210px;object-fit:cover;">
+                    <div style="padding:18px;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <h3 style="margin:0;font-size:20px;">Biryani Corner</h3>
+                            <span style="
+                                background:#2E7D32;
+                                color:white;
+                                padding:5px 8px;
+                                border-radius:5px;
+                                font-size:13px;
+                                font-weight:bold;
+                            ">★ 4.3</span>
+                        </div>
+                        <p style="margin:10px 0 5px 0;color:#666;font-size:14px;">Biryani • Indian</p>
+                        <p style="margin:5px 0;color:#777;font-size:14px;">25-30 mins</p>
+                        <span style="
+                            display:inline-block;
+                            margin-top:10px;
+                            background:#FFF0E6;
+                            color:#FF6B35;
+                            padding:9px 15px;
+                            border-radius:7px;
+                            font-size:13px;
+                            font-weight:bold;
+                        ">View Menu →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="menu" style="text-decoration:none;color:#252525;">
+                <div style="
+                    background:white;
+                    border-radius:16px;
+                    overflow:hidden;
+                    box-shadow:0 4px 18px rgba(0,0,0,0.09);
+                    border:1px solid #eee;
+                ">
+                    <img src="images/burger.jpg" alt="Burger Point" style="width:100%;height:210px;object-fit:cover;">
+                    <div style="padding:18px;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <h3 style="margin:0;font-size:20px;">Burger Point</h3>
+                            <span style="
+                                background:#2E7D32;
+                                color:white;
+                                padding:5px 8px;
+                                border-radius:5px;
+                                font-size:13px;
+                                font-weight:bold;
+                            ">★ 4.2</span>
+                        </div>
+                        <p style="margin:10px 0 5px 0;color:#666;font-size:14px;">Burgers • Fries • Beverages</p>
+                        <p style="margin:5px 0;color:#777;font-size:14px;">30-35 mins</p>
+                        <span style="
+                            display:inline-block;
+                            margin-top:10px;
+                            background:#FFF0E6;
+                            color:#FF6B35;
+                            padding:9px 15px;
+                            border-radius:7px;
+                            font-size:13px;
+                            font-weight:bold;
+                        ">View Menu →</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= POPULAR DISHES ================= -->
+<section style="
+    max-width:1200px;
+    margin:50px auto;
+    padding:0 25px;
+    box-sizing:border-box;
+">
+    <p style="
+        margin:0 0 6px 0;
+        color:#FF6B35;
+        font-size:13px;
+        font-weight:bold;
+        letter-spacing:1px;
+    ">MUST TRY</p>
+
+    <h2 style="
+        font-size:30px;
+        margin:0 0 25px 0;
+    ">Popular Dishes</h2>
+
+    <div style="
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:22px;
+    ">
+
+        <a href="menu" style="text-decoration:none;color:#252525;">
+            <div style="background:white;border-radius:15px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,0.08);border:1px solid #eee;">
+                <img src="images/margherita.jpg" alt="Margherita Pizza" style="width:100%;height:180px;object-fit:cover;">
+                <div style="padding:16px;">
+                    <h3 style="margin:0 0 7px 0;font-size:17px;">Margherita Pizza</h3>
+                    <p style="margin:0;color:#FF6B35;font-weight:bold;font-size:17px;">&#8377;199</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="menu" style="text-decoration:none;color:#252525;">
+            <div style="background:white;border-radius:15px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,0.08);border:1px solid #eee;">
+                <img src="images/classicburger.jpg" alt="Classic Burger" style="width:100%;height:180px;object-fit:cover;">
+                <div style="padding:16px;">
+                    <h3 style="margin:0 0 7px 0;font-size:17px;">Classic Burger</h3>
+                    <p style="margin:0;color:#FF6B35;font-weight:bold;font-size:17px;">&#8377;149</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="menu" style="text-decoration:none;color:#252525;">
+            <div style="background:white;border-radius:15px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,0.08);border:1px solid #eee;">
+                <img src="images/chickenbiryani.jpg" alt="Chicken Biryani" style="width:100%;height:180px;object-fit:cover;">
+                <div style="padding:16px;">
+                    <h3 style="margin:0 0 7px 0;font-size:17px;">Chicken Biryani</h3>
+                    <p style="margin:0;color:#FF6B35;font-weight:bold;font-size:17px;">&#8377;249</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="menu" style="text-decoration:none;color:#252525;">
+            <div style="background:white;border-radius:15px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,0.08);border:1px solid #eee;">
+                <img src="images/masaladosa.jpg" alt="Masala Dosa" style="width:100%;height:180px;object-fit:cover;">
+                <div style="padding:16px;">
+                    <h3 style="margin:0 0 7px 0;font-size:17px;">Masala Dosa</h3>
+                    <p style="margin:0;color:#FF6B35;font-weight:bold;font-size:17px;">&#8377;99</p>
+                </div>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- ================= OFFER ================= -->
+<section style="max-width:1200px;margin:50px auto;padding:0 25px;box-sizing:border-box;">
+    <div style="
+        background:linear-gradient(135deg,#FF6B35,#FFB703);
+        color:white;
+        border-radius:20px;
+        padding:42px 25px;
+        text-align:center;
+        box-shadow:0 8px 25px rgba(252,128,25,0.22);
+    ">
+        <p style="margin:0 0 8px 0;font-size:13px;font-weight:bold;letter-spacing:1px;">FOODORDER SPECIAL</p>
+        <h2 style="margin:0 0 12px 0;font-size:32px;">Delicious Food. Great Deals.</h2>
+        <p style="margin:0;font-size:17px;">Explore restaurants and enjoy your favourite meals at great prices.</p>
+
+        <a href="restaurants" style="
+            display:inline-block;
+            margin-top:22px;
+            background:white;
+            color:#FF6B35;
+            text-decoration:none;
+            padding:12px 24px;
+            border-radius:8px;
+            font-weight:bold;
+        ">Explore Restaurants</a>
+    </div>
+</section>
+
+<!-- ================= WHY FOODORDER ================= -->
+<section style="
+    background:#fff;
+    border-top:1px solid #f2e7df;
+    border-bottom:1px solid #f2e7df;
+    padding:50px 25px;
+    margin-top:60px;
+">
+    <div style="max-width:1200px;margin:auto;text-align:center;">
+        <p style="
+            margin:0 0 6px 0;
+            color:#FF6B35;
+            font-size:13px;
+            font-weight:bold;
+            letter-spacing:1px;
+        ">WHY FOODORDER?</p>
+
+        <h2 style="font-size:30px;margin:0 0 30px 0;">Everything you need for a great meal</h2>
+
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:25px;
+        ">
+
+            <div style="
+                background:#FFF4EA;
+                padding:28px 20px;
+                border-radius:16px;
+                border:1px solid #F2D2BE;
+            ">
+                <div style="
+                    width:55px;
+                    height:55px;
+                    line-height:55px;
+                    margin:0 auto 15px auto;
+                    border-radius:50%;
+                    background:#FF6B35;
+                    color:white;
+                    font-size:25px;
+                ">⚡</div>
+                <h3 style="margin:0 0 8px 0;">Fast Delivery</h3>
+                <p style="margin:0;color:#777;line-height:1.6;">Get your favourite meals delivered quickly to your doorstep.</p>
+            </div>
+
+            <div style="
+                background:#FFF4EA;
+                padding:28px 20px;
+                border-radius:16px;
+                border:1px solid #F2D2BE;
+            ">
+                <div style="
+                    width:55px;
+                    height:55px;
+                    line-height:55px;
+                    margin:0 auto 15px auto;
+                    border-radius:50%;
+                    background:#FF6B35;
+                    color:white;
+                    font-size:25px;
+                ">♥</div>
+                <h3 style="margin:0 0 8px 0;">Fresh Food</h3>
+                <p style="margin:0;color:#777;line-height:1.6;">Choose from delicious meals prepared by your favourite restaurants.</p>
+            </div>
+
+            <div style="
+                background:#FFF4EA;
+                padding:28px 20px;
+                border-radius:16px;
+                border:1px solid #F2D2BE;
+            ">
+                <div style="
+                    width:55px;
+                    height:55px;
+                    line-height:55px;
+                    margin:0 auto 15px auto;
+                    border-radius:50%;
+                    background:#FF6B35;
+                    color:white;
+                    font-size:25px;
+                ">✓</div>
+                <h3 style="margin:0 0 8px 0;">Easy Ordering</h3>
+                <p style="margin:0;color:#777;line-height:1.6;">Browse, add to cart, pay and track your orders easily.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer style="
+    background:#202124;
+    color:white;
+    margin-top:0;
+    padding:45px 25px 25px 25px;
+">
+    <div style="
+        max-width:1200px;
+        margin:auto;
+        display:grid;
+        grid-template-columns:2fr 1fr 1fr;
+        gap:50px;
+    ">
+
+        <div>
+            <h3 style="color:#FF6B35;margin:0 0 15px 0;font-size:23px;">FoodOrder</h3>
+            <p style="color:#aaa;margin:0;line-height:1.7;">
+                Your favourite food delivery platform.
+            </p>
+        </div>
+
+        <div>
+            <h3 style="color:#FF6B35;margin:0 0 15px 0;">Quick Links</h3>
+            <p style="margin:7px 0;"><a href="restaurants" style="color:#aaa;text-decoration:none;">Restaurants</a></p>
+            <p style="margin:7px 0;"><a href="menu" style="color:#aaa;text-decoration:none;">Menu</a></p>
+            <p style="margin:7px 0;"><a href="order" style="color:#aaa;text-decoration:none;">Orders</a></p>
+        </div>
+
+        <div>
+            <h3 style="color:#FF6B35;margin:0 0 15px 0;">Account</h3>
+            <p style="margin:7px 0;"><a href="profile" style="color:#aaa;text-decoration:none;">Profile</a></p>
+            <p style="margin:7px 0;"><a href="cart" style="color:#aaa;text-decoration:none;">Cart</a></p>
+            <p style="margin:7px 0;"><a href="login.html" style="color:#aaa;text-decoration:none;">Login</a></p>
+        </div>
+
+    </div>
+
+    <div style="
+        max-width:1200px;
+        margin:35px auto 0 auto;
+        padding-top:20px;
+        border-top:1px solid #444;
+        text-align:center;
+        color:#777;
+        font-size:13px;
+    ">
+        © 2026 FoodOrder. All Rights Reserved.
+    </div>
+</footer>
+
+</body>
+</html>
